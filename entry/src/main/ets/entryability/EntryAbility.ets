@@ -1,6 +1,7 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
+import { adManageFinal, AdManageFinal, AdvertClass, defaultAd } from '../components/AdManageFinal';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
@@ -11,17 +12,23 @@ export default class EntryAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
   }
 
-  onWindowStageCreate(windowStage: window.WindowStage): void {
+  async onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/Index', (err) => {
-      if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
-        return;
-      }
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
-    });
+    await windowStage.loadContent('pages/Index');
+
+    // 页面渲染之后,才可以显示弹层
+    const ad = await new Promise<AdvertClass>((resolve) => {
+      setTimeout(() => {
+        resolve(defaultAd) // 广告信息
+      }, 500)
+    })
+    if (ad.showAd) {
+      // 赋值上下文
+      adManageFinal.context = this.context
+      adManageFinal.showAd(ad)
+    }
   }
 
   onWindowStageDestroy(): void {

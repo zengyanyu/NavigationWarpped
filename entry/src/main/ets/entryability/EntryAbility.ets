@@ -16,7 +16,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    await windowStage.loadContent('pages/Index');
+    await windowStage.loadContent('pages/LoadingDemo');
 
     // 页面渲染之后,才可以显示弹层
     const ad = await new Promise<AdvertClass>((resolve) => {

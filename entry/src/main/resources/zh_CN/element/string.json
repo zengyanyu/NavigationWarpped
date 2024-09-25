@@ -11,6 +11,54 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "WidgetCard_desc",
+      "value": "This is a service widget."
+    },
+    {
+      "name": "WidgetCard_display_name",
+      "value": "widget"
+    },
+    {
+      "name": "card_list_title",
+      "value": "Title"
+    },
+    {
+      "name": "card_list_content",
+      "value": "Introduction"
+    },
+    {
+      "name": "widget_search",
+      "value": "发现更多"
+    },
+    {
+      "name": "widget_explored",
+      "value": "探索"
+    },
+    {
+      "name": "widget_study",
+      "value": "学习"
+    },
+    {
+      "name": "widget_activity",
+      "value": "活动"
+    },
+    {
+      "name": "widget_mine",
+      "value": "我的"
+    },
+    {
+      "name": "widget_more",
+      "value": "更多信息"
     }
   ]
 }

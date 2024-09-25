@@ -1,5 +1,3 @@
-import { text } from '@kit.ArkGraphics2D'
-
 @Component
 struct NavService {
   @Consume

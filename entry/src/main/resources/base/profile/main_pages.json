@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/LoadingDemo"
+    "pages/LoadingDemo",
+    "pages/CommonEventCase"
   ]
 }
